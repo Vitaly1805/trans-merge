@@ -58,7 +58,7 @@
                 <div class="permission-add__list">
                     <div class="permission-add__item">
                         <div class="permission-add__title">
-                            1. Выдал {{supervisorOfResponsibleForExecute.lastname}} {{supervisorOfResponsibleForExecute.name}} {{supervisorOfResponsibleForExecute.patronymic}} для выполнения следующих работ:
+                            Выдал начальнику {{supervisorOfResponsibleForExecute.lastname}} {{supervisorOfResponsibleForExecute.name}} {{supervisorOfResponsibleForExecute.patronymic}}
                         </div>
                         <form method="post" action="http://trans/employee" class="permission-add__supervisor">
                             <input type="text" readonly name="id_type_person" value="5" hidden>
@@ -66,42 +66,10 @@
                             <input type="submit" class="permission-add__button input button" value="Изменить руководителя ответственного исполнителя" name="add-responsible"  style="width: 500px">
                             {% endif %}
                         </form>
-                        <div class="permission-add__types">
-                            <div class="permission-add__subtitle permission-add__subtitile_typical">
-                            </div>
-                            {% for current_typical_work in current_typical_works %}
-                            <form method="post" class="permission-add__type">
-                                <div class="permission-add__typical">
-                                    <div class="permission-add__type-name">
-                                        - {{current_typical_work.name}}
-                                    </div>
-                                    <input type="text" name="typical_work_id" class="current_typical_work_id" hidden value="{{current_typical_work.typical_work_id}}" >
-                                    {% if roles.isAuthor and permission.status_id < 3 %}
-                                    <span class="icon-clear permission-add__clear current_typical_work_del"></span>
-                                    {% endif %}
-                                </div>
-                                {% if current_typical_work.description != '' %}
-                                <div class="permission-add__block">
-                                    <textarea readonly class="permission-add__textarea textarea" name="untypical_works" id="untypical_works" cols="30" rows="10" placeholder="Введите нетиповые работы...">{{current_typical_work.description}}</textarea>
-                                </div>
-                                {% endif %}
-                            </form>
-                            {% endfor %}
-                        </div>
-                        <div class="permission-add__subtitle permission-add__subtitile_untypical">
-                        </div>
-                        {% if permission.untypical_work != '' %}
-                        <div class="permission-add__block">
-                            <textarea readonly class="permission-add__textarea textarea" name="untypical_works" id="untypical_works" cols="30" rows="10" placeholder="Введите нетиповые работы...">{{permission.untypical_work}}</textarea>
-                        </div>
-                        {% endif %}
-                        {% if roles.isAuthor and permission.status_id < 3 %}
-                        <a href="http://trans/type-work" class="permission-add__button permission-add__button_margin input button" style="width: 350px">Выбрать типы работ</a>
-                        {% endif %}
                     </div>
                     <div class="permission-add__item">
                         <div class="permission-add__title">
-                            2. В период:
+                            1. Периоды проведения работ:
                         </div>
                         <div class="permission-add__block">
                             <div class="permission-add__dates">
@@ -140,12 +108,39 @@
                     </div>
                     <div class="permission-add__item">
                         <div class="permission-add__title">
-                            3. Описание:
+                            2. Наименование работ, основание для выполнения работ:
                         </div>
+                        <div class="permission-add__types">
+                            <div class="permission-add__subtitle permission-add__subtitile_typical">
+                            </div>
+                            {% for current_typical_work in current_typical_works %}
+                            <form method="post" class="permission-add__type">
+                                <div class="permission-add__typical">
+                                    <div class="permission-add__type-name">
+                                        - {{current_typical_work.name}}
+                                    </div>
+                                    <input type="text" name="typical_work_id" class="current_typical_work_id" hidden value="{{current_typical_work.typical_work_id}}" >
+                                    {% if roles.isAuthor and permission.status_id < 3 %}
+                                    <span class="icon-clear permission-add__clear current_typical_work_del"></span>
+                                    {% endif %}
+                                </div>
+                                {% if current_typical_work.description != '' %}
+                                <div class="permission-add__block">
+                                    <textarea readonly class="permission-add__textarea textarea" name="untypical_works" id="untypical_works" cols="30" rows="10" placeholder="Введите нетиповые работы...">{{current_typical_work.description}}</textarea>
+                                </div>
+                                {% endif %}
+                            </form>
+                            {% endfor %}
+                        </div>
+                        <div class="permission-add__subtitle permission-add__subtitile_untypical">
+                        </div>
+                        {% if permission.untypical_work != '' %}
+                        <div class="permission-add__block">
+                            <textarea readonly class="permission-add__textarea textarea" name="untypical_works" id="untypical_works" cols="30" rows="10" placeholder="Введите нетиповые работы...">{{permission.untypical_work}}</textarea>
+                        </div>
+                        {% endif %}
                         {% if roles.isAuthor and permission.status_id < 3 %}
-                        <textarea class="permission-add__textarea textarea" name="description" id="description" cols="30" rows="10" placeholder="Введите описание...">{{permission.description}}</textarea>
-                        {% else %}
-                        <textarea readonly class="permission-add__textarea textarea" name="description" id="description" cols="30" rows="10" placeholder="Введите описание...">{{permission.description}}</textarea>
+                        <a href="http://trans/type-work" class="permission-add__button permission-add__button_margin input button" style="width: 350px">Выбрать типы работ</a>
                         {% endif %}
                     </div>
 
@@ -153,7 +148,7 @@
                     <div class="permission-add__item">
 
                         <div class="permission-add__subtitle">
-                            4. Маскирование защиты:
+                            3. Маскирование защиты:
                         </div>
                         <div class="table-content-mask__rows table-content-mask__row_head">
                             <div class="table-content-mask__col table-content-mask__head" name="system">Система</div>
@@ -163,7 +158,7 @@
                             <div class="table-content-mask__col table-content-mask__head entrance-on" name="type_location">Тип объекта</div>
                             <div class="table-content-mask__col table-content-mask__head entrance-on" name="location">Объект</div>
                             <div class="table-content-mask__col table-content-mask__head entrance-on" name="vtor">Втор</div>
-                            <div class="table-content-mask__col table-content-mask__head entrance-on" name="delete-mask">Удалить</div>  
+                            <div class="table-content-mask__col table-content-mask__head entrance-on" name="delete-mask">Удалить</div>
                         </div>
                         {% set i = 0 %}
                         {% for protection in protections %}
@@ -171,7 +166,7 @@
                         <form action="" method="post" class="form__del-masks">
                             <div class="table-content-mask__rows table-row">
                                 <div class="table-content-mask__col table-col col-first">
-                                        <input type="text" name="ty-1" class="table-mask-col__input protection input-ty input-row" value="{{protection.system_apcs_name}}" required="required" readonly>
+                                    <input type="text" name="ty-1" class="table-mask-col__input protection input-ty input-row" value="{{protection.system_apcs_name}}" required="required" readonly>
                                 </div>
                                 <div class="table-content-mask__col table-col">
                                     <input type="text" class="protection_id-{{i}} input-row" name="protection_id-{{i}}" value="{{protection.protection_id}}" hidden>
@@ -217,14 +212,14 @@
                                 </div>
                                 {% endif %}
                                 {% if protection.vtor_name == 'Втор' %}
-                                <div class="table-content-mask__col table-col entrance-on"> 
+                                <div class="table-content-mask__col table-col entrance-on">
                                     <label class="check-entrance">
                                         <input type="checkbox" class="check-entrance__input vtor" name="vtor-{{i}}" checked hidden>
                                         <span class="check-entrance__span"></span>
                                     </label>
                                 </div>
                                 {% elseif protection.vtor_name == 'Невтор' %}
-                                <div class="table-content-mask__col table-col entrance-on"> 
+                                <div class="table-content-mask__col table-col entrance-on">
                                     <label class="check-entrance">
                                         <input type="checkbox" class="check-entrance__input vtor" name="vtor-{{i}}" hidden>
                                         <span class="check-entrance__span"></span>
@@ -233,100 +228,142 @@
                                 {% endif %}
                                 <div class="table-content-mask__col table-col">
                                     <label class="check-entrance">
-                                    <input type="submit" name="del-masks" value="Удалить" hidden>
-                                    <span class="icon-clear permission-add__clear"></span>
+                                        <input type="submit" name="del-masks" value="Удалить" hidden>
+                                        <span class="icon-clear permission-add__clear"></span>
                                     </label>
                                 </div>
                             </div>
                         </form>
                         {% endfor %}
+                        <a href="http://trans/mask-add" class="permission-add__button-mask input button">Добавить маскирование защиты</a>
                     </div>
-
-                    <a href="http://trans/mask-add" class="permission-add__button-mask input button">Добавить маскирование защиты</a>        
-
-
                     <div class="permission-add__item">
                         <div class="permission-add__title">
-                            5. Ответственные за подготовку работ:
+                            4. Прочие условия проведения работ:
                         </div>
-                        <div class="permission-add__responsibles">
-                            {% for responsible in responsiblesForPreparation %}
-                            <div class="permission-add__responsible">
-                                <div class="permission-add__name">
-                                    {{responsible.lastname}} {{responsible.name}} {{responsible.patronymic}}
+                        <div class="permission-add__condition condition-permission">
+                            <div class="condition-permission__list">
+                                <div class="condition-permission__item">
+                                    <div class="condition-permission__block">
+                                        <div class="condition-permission__subtitle">
+                                            4.1 Аварийная готовность:
+                                        </div>
+                                        <input type="text" id="minute" placeholder="Введите кол. минут" class="input condition-permission__minute">
+                                        <div class="condition-permission__subtitle">
+                                            минут
+                                        </div>
+                                    </div>
                                 </div>
-                                <input type="text" hidden class="responsible__id" value="{{responsible.user_id}}">
-                                <span class="icon-clear permission-add__clear permission__del_user"></span>
-                            </div>
-                            {% endfor %}
-                            {% if roles.isAuthor and permission.status_id < 3 %}
-                            <form action="http://trans/employee" method="post">
-                                <input type="text" readonly name="id_type_person" value="2" hidden>
-                                <input type="submit" class="permission-add__button input button" value="Добавить ответсвенного за подготовку работ" name="add-responsible"  style="width: 400px">
-                            </form>
-                            {% endif %}
-                        </div>
-                    </div>
-                    <div class="permission-add__item">
-                        <div class="permission-add__title">
-                            6. Ответственные за выполнение работ:
-                        </div>
-                        <div class="permission-add__responsibles">
-                            {% for responsible in responsiblesForExecute %}
-                            <div class="permission-add__responsible">
-                                <div class="permission-add__name">
-                                    {{responsible.lastname}} {{responsible.name}} {{responsible.patronymic}}
+                                <div class="condition-permission__item">
+                                    <div class="condition-permission__block">
+                                        <div class="condition-permission__subtitle">
+                                            4.2 Отметка об отсутствии(наличии) аварийного включения резерва(АВР) при выполнении работ:
+                                        </div>
+                                        <form method="post" class="condition-permission__checkboxes">
+                                            <label for="yes-emergency-activation">ДА</label>
+                                            <input type="radio" id="yes-emergency-activation" name="emergency-activation">
+                                            <label for="no-emergency-activation">НЕТ</label>
+                                            <input type="radio" id="no-emergency-activation" name="emergency-activation" checked>
+                                        </form>
+                                    </div>
                                 </div>
-                                <input type="text" hidden class="responsible__id" value="{{responsible.user_id}}">
-                                <span class="icon-clear permission-add__clear permission__del_user"></span>
-                            </div>
-                            {% endfor %}
-                            {% if roles.isAuthor and permission.status_id < 3 %}
-                            <form action="http://trans/employee" method="post">
-                                <input type="text" readonly name="id_type_person" value="3" hidden>
-                                <input type="submit" class="permission-add__button input button" value="Добавить ответсвенного за проведение работ" name="add-responsible"  style="width: 400px">
-                            </form>
-                            {% endif %}
-                        </div>
-                    </div>
-                    <div class="permission-add__item">
-                        <div class="permission-add__title">
-                            7. Ответственный за контроль при производстве работ:
-                        </div>
-                        <div class="permission-add__responsibles">
-                            {% for responsible in responsiblesForControl %}
-                            <div class="permission-add__responsible">
-                                <div class="permission-add__name">
-                                    {{responsible.lastname}} {{responsible.name}} {{responsible.patronymic}}
+                                <div class="condition-permission__item">
+                                    <div class="condition-permission__subtitle">
+                                        4.3 Ответственные за подготовку работ:
+                                    </div>
+                                    <div class="permission-add__responsibles">
+                                        {% for responsible in responsiblesForPreparation %}
+                                        <div class="permission-add__responsible">
+                                            <div class="permission-add__name">
+                                                {{responsible.lastname}} {{responsible.name}} {{responsible.patronymic}}
+                                            </div>
+                                            <input type="text" hidden class="responsible__id" value="{{responsible.user_id}}">
+                                            <span class="icon-clear permission-add__clear permission__del_user"></span>
+                                        </div>
+                                        {% endfor %}
+                                        {% if roles.isAuthor and permission.status_id < 3 %}
+                                        <form action="http://trans/employee" method="post">
+                                            <input type="text" readonly name="id_type_person" value="2" hidden>
+                                            <input type="submit" class="permission-add__button input button" value="Добавить ответсвенного за подготовку работ" name="add-responsible"  style="width: 400px">
+                                        </form>
+                                        {% endif %}
+                                    </div>
                                 </div>
-                                <input type="text" hidden class="responsible__id" value="{{responsible.user_id}}">
-                                <span class="icon-clear permission-add__clear permission__del_user"></span>
+                                <div class="condition-permission__item">
+                                    <div class="condition-permission__subtitle">
+                                        4.4 Ответственные за проведение работ:
+                                    </div>
+                                    <div class="permission-add__responsibles">
+                                        {% for responsible in responsiblesForExecute %}
+                                        <div class="permission-add__responsible">
+                                            <div class="permission-add__name">
+                                                {{responsible.lastname}} {{responsible.name}} {{responsible.patronymic}}
+                                            </div>
+                                            <input type="text" hidden class="responsible__id" value="{{responsible.user_id}}">
+                                            <span class="icon-clear permission-add__clear permission__del_user"></span>
+                                        </div>
+                                        {% endfor %}
+                                        {% if roles.isAuthor and permission.status_id < 3 %}
+                                        <form action="http://trans/employee" method="post">
+                                            <input type="text" readonly name="id_type_person" value="3" hidden>
+                                            <input type="submit" class="permission-add__button input button" value="Добавить ответсвенного за проведение работ" name="add-responsible"  style="width: 400px">
+                                        </form>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="condition-permission__item">
+                                    <div class="condition-permission__subtitle">
+                                        4.5 Ответственные за контроль при производстве работ:
+                                    </div>
+                                    <div class="permission-add__responsibles">
+                                        {% for responsible in responsiblesForControl %}
+                                        <div class="permission-add__responsible">
+                                            <div class="permission-add__name">
+                                                {{responsible.lastname}} {{responsible.name}} {{responsible.patronymic}}
+                                            </div>
+                                            <input type="text" hidden class="responsible__id" value="{{responsible.user_id}}">
+                                            <span class="icon-clear permission-add__clear permission__del_user"></span>
+                                        </div>
+                                        {% endfor %}
+                                        {% if roles.isAuthor and permission.status_id < 3 %}
+                                        <form action="http://trans/employee" method="post">
+                                            <input type="text" readonly name="id_type_person" value="4" hidden>
+                                            <input type="submit" class="permission-add__button input button" value="Добавить ответсвенного за контроль при производстве работ" name="add-responsible"  style="width: 500px">
+                                        </form>
+                                        {% endif %}
+                                    </div>
+                                </div>
                             </div>
-                            {% endfor %}
-                            {% if roles.isAuthor and permission.status_id < 3 %}
-                            <form action="http://trans/employee" method="post">
-                                <input type="text" readonly name="id_type_person" value="4" hidden>
-                                <input type="submit" class="permission-add__button input button" value="Добавить ответсвенного за контроль при производстве работ" name="add-responsible"  style="width: 500px">
-                            </form>
-                            {% endif %}
                         </div>
                     </div>
+<!--                    <div class="permission-add__item">-->
+<!--                        <div class="permission-add__title">-->
+<!--                            3. Описание:-->
+<!--                        </div>-->
+<!--                        {% if roles.isAuthor and permission.status_id < 3 %}-->
+<!--                        <textarea class="permission-add__textarea textarea" name="description" id="description" cols="30" rows="10" placeholder="Введите описание...">{{permission.description}}</textarea>-->
+<!--                        {% else %}-->
+<!--                        <textarea readonly class="permission-add__textarea textarea" name="description" id="description" cols="30" rows="10" placeholder="Введите описание...">{{permission.description}}</textarea>-->
+<!--                        {% endif %}-->
+<!--                    </div>-->
                     <div class="permission-add__item">
                         <div class="permission-add__title">
-                            8. Дополнительно:
+                            5. При производстве работ обеспечить:
                         </div>
                         {% if roles.isAuthor and permission.status_id < 3 %}
-                        <textarea class="permission-add__textarea textarea" name="addition" id="addition" cols="30" rows="10" placeholder="Введите дополнительную информацию...">{{permission.addition}}</textarea>
+                        <textarea class="permission-add__textarea textarea" name="addition" id="addition" cols="30" rows="10" placeholder="Введите информацию...">{{permission.addition}}</textarea>
                         {% else %}
-                        <textarea readonly class="permission-add__textarea textarea" name="addition" id="addition" cols="30" rows="10" placeholder="Введите дополнительную информацию...">{{permission.addition}}</textarea>
+                        <textarea readonly class="permission-add__textarea textarea" name="addition" id="addition" cols="30" rows="10" placeholder="Введите информацию...">{{permission.addition}}</textarea>
                         {% endif %}
                     </div>
                 </div>
                 <div class="permission-add__bottom-forms" style="display: flex">
                     <form method="post" class="permission-add__bottom">
                         <textarea class="permission-add__textarea" name="untypical_works" hidden id="untypical_works_form" cols="30" rows="10" placeholder="Введите нетиповые работы..."></textarea>
-                        <textarea class="permission-add__textarea" name="description" hidden id="description_form" cols="30" rows="10" placeholder="Введите описание..."></textarea>
+<!--                        <textarea class="permission-add__textarea" name="description" hidden id="description_form" cols="30" rows="10" placeholder="Введите описание..."></textarea>-->
+                        <input type="text" readonly hidden name="emergency-activation" id="emergency-activation">
                         <textarea class="permission-add__textarea" name="addition" hidden id="addition_form" cols="30" rows="10" placeholder="Введите дополнительную информацию..."></textarea>
+                        <input type="text" readonly hidden id="minute_form" name="count_minutes">
                         {% if roles.isAuthor and permission.status_id < 3 %}
                         <input type="submit" value="Сохранить" name="update-permission" class="permission-add__button input button">
                         {% endif %}

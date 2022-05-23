@@ -9546,3 +9546,66 @@ values(var_permission_id, var_vtor_id, var_entrance_id, var_protection_id,
  ===================== 
 [2022-05-23 00:16:18] Сообщение: Cannot modify header information - headers already sent by (output started at D:\OpenServer\domains\trans\vendor\tecnickcom\tcpdf\include\tcpdf_static.php:353); Файл: D:\OpenServer\domains\trans\app\widgets\pdf\PDF.php; Линия: 81 
  ===================== 
+[2022-05-23 10:24:11] Сообщение: Undefined variable $date; Файл: D:\diplome\OpenServer\domains\trans\app\widgets\pdf\PDF.php; Линия: 52 
+ ===================== 
+[2022-05-23 10:37:45] Сообщение: Unclosed '{' on line 667 does not match ')'; Файл: D:\diplome\OpenServer\domains\trans\app\models\PermissionModel.php; Линия: 668 
+ ===================== 
+[2022-05-23 11:04:57] Сообщение: Undefined array key "name"; Файл: D:\diplome\OpenServer\domains\trans\app\widgets\pdf\PDF.php; Линия: 39 
+ ===================== 
+[2022-05-23 11:05:11] Сообщение: Undefined array key "name"; Файл: D:\diplome\OpenServer\domains\trans\app\widgets\pdf\PDF.php; Линия: 40 
+ ===================== 
+[2022-05-23 11:06:15] Сообщение: Страница не найдена; Файл: D:\diplome\OpenServer\domains\trans\vendor\core\Router.php; Линия: 40 
+ ===================== 
+[2022-05-23 11:11:04] Сообщение: Undefined array key "name"; Файл: D:\diplome\OpenServer\domains\trans\app\widgets\pdf\PDF.php; Линия: 39 
+ ===================== 
+[2022-05-23 12:30:39] Сообщение: Undefined array key "number"; Файл: D:\diplome\OpenServer\domains\trans\app\widgets\pdf\PDF.php; Линия: 39 
+ ===================== 
+[2022-05-23 12:30:48] Сообщение: Undefined array key "number"; Файл: D:\diplome\OpenServer\domains\trans\app\widgets\pdf\PDF.php; Линия: 39 
+ ===================== 
+[2022-05-23 12:41:26] Сообщение: syntax error, unexpected token "=>", expecting ")"; Файл: D:\diplome\OpenServer\domains\trans\app\widgets\pdf\PDF.php; Линия: 41 
+ ===================== 
+[2022-05-23 13:37:43] Сообщение: Undefined array key "lastname"; Файл: D:\diplome\OpenServer\domains\trans\app\widgets\pdf\PDF.php; Линия: 79 
+ ===================== 
+[2022-05-23 13:39:08] Сообщение: Data has already been sent to output (D:\diplome\OpenServer\domains\trans\vendor\core\libs\functions.php at line 5), unable to output PDF file; Файл: D:\diplome\OpenServer\domains\trans\vendor\mpdf\mpdf\src\Mpdf.php; Линия: 9568 
+ ===================== 
+[2022-05-23 13:51:23] Сообщение: fopen(pdf/test.pdt): Failed to open stream: No such file or directory; Файл: D:\diplome\OpenServer\domains\trans\vendor\mpdf\mpdf\src\Mpdf.php; Линия: 9625 
+ ===================== 
+[2022-05-23 13:51:31] Сообщение: fopen(pdf/test.pdt): Failed to open stream: No such file or directory; Файл: D:\diplome\OpenServer\domains\trans\vendor\mpdf\mpdf\src\Mpdf.php; Линия: 9625 
+ ===================== 
+[2022-05-23 13:54:27] Сообщение: Undefined variable $date; Файл: D:\diplome\OpenServer\domains\trans\app\widgets\pdf\PDF.php; Линия: 114 
+ ===================== 
+[2022-05-23 14:07:47] Сообщение: Undefined array key -1; Файл: D:\diplome\OpenServer\domains\trans\vendor\mpdf\mpdf\src\Tag\BlockTag.php; Линия: 117 
+ ===================== 
+[2022-05-23 14:10:41] Сообщение: Data has already been sent to output (D:\diplome\OpenServer\domains\trans\vendor\core\libs\functions.php at line 5), unable to output PDF file; Файл: D:\diplome\OpenServer\domains\trans\vendor\mpdf\mpdf\src\Mpdf.php; Линия: 9568 
+ ===================== 
+[2022-05-23 16:23:59] Сообщение: SQLSTATE[HY093]: Invalid parameter number: :vtor_id; Файл: D:\diplome\OpenServer\domains\trans\app\widgets\permission\Permission.php; Линия: 44 
+ ===================== 
+[2022-05-23 16:25:44] Сообщение: SQLSTATE[HY093]: Invalid parameter number: :is_emergency_activation; Файл: D:\diplome\OpenServer\domains\trans\app\widgets\permission\Permission.php; Линия: 50 
+ ===================== 
+[2022-05-23 16:26:43] Сообщение: SQLSTATE[HY093]: Invalid parameter number: :is_emergency_activation; Файл: D:\diplome\OpenServer\domains\trans\app\widgets\permission\Permission.php; Линия: 50 
+ ===================== 
+[2022-05-23 16:26:46] Сообщение: SQLSTATE[HY093]: Invalid parameter number: :is_emergency_activation; Файл: D:\diplome\OpenServer\domains\trans\app\widgets\permission\Permission.php; Линия: 50 
+ ===================== 
+[2022-05-23 16:27:00] Сообщение: SQLSTATE[HY093]: Invalid parameter number: :is_emergency_activation; Файл: D:\diplome\OpenServer\domains\trans\app\widgets\permission\Permission.php; Линия: 50 
+ ===================== 
+[2022-05-23 16:38:42] Сообщение: Undefined array key "description"; Файл: D:\diplome\OpenServer\domains\trans\app\controllers\PermissionController.php; Линия: 66 
+ ===================== 
+[2022-05-23 16:39:44] Сообщение: SQLSTATE[42883]: Undefined function: 7 ОШИБКА:  функция update_permission(unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown) не существует
+LINE 1: SELECT * FROM update_permission($1, $2, $3, $4, $5, $6, $6, ...
+                      ^
+HINT:  Функция с данными именем и типами аргументов не найдена. Возможно, вам следует добавить явные приведения типов.; Файл: D:\diplome\OpenServer\domains\trans\app\widgets\permission\Permission.php; Линия: 71 
+ ===================== 
+[2022-05-23 16:42:29] Сообщение: Cannot modify header information - headers already sent by (output started at D:\diplome\OpenServer\domains\trans\vendor\core\libs\functions.php:5); Файл: D:\diplome\OpenServer\domains\trans\app\models\AppModel.php; Линия: 11 
+ ===================== 
+[2022-05-23 16:43:49] Сообщение: Too few arguments to function models\PermissionModel::updatePermission(), 1 passed in D:\diplome\OpenServer\domains\trans\app\controllers\PermissionController.php on line 66 and exactly 2 expected; Файл: D:\diplome\OpenServer\domains\trans\app\models\PermissionModel.php; Линия: 65 
+ ===================== 
+[2022-05-23 16:44:07] Сообщение: Cannot modify header information - headers already sent by (output started at D:\diplome\OpenServer\domains\trans\app\models\PermissionModel.php:67); Файл: D:\diplome\OpenServer\domains\trans\app\models\AppModel.php; Линия: 11 
+ ===================== 
+[2022-05-23 16:44:51] Сообщение: Cannot modify header information - headers already sent by (output started at D:\diplome\OpenServer\domains\trans\vendor\core\libs\functions.php:5); Файл: D:\diplome\OpenServer\domains\trans\app\models\AppModel.php; Линия: 11 
+ ===================== 
+[2022-05-23 16:46:11] Сообщение: Undefined array key "emergency-activation"; Файл: D:\diplome\OpenServer\domains\trans\app\controllers\PermissionController.php; Линия: 66 
+ ===================== 
+[2022-05-23 16:46:45] Сообщение: dumper(): Argument #1 ($arr) must be of type array, bool given, called in D:\diplome\OpenServer\domains\trans\app\models\PermissionModel.php on line 66; Файл: D:\diplome\OpenServer\domains\trans\vendor\core\libs\functions.php; Линия: 3 
+ ===================== 
+[2022-05-23 16:46:51] Сообщение: Cannot modify header information - headers already sent by (output started at D:\diplome\OpenServer\domains\trans\app\models\PermissionModel.php:66); Файл: D:\diplome\OpenServer\domains\trans\app\models\AppModel.php; Линия: 11 
+ ===================== 

@@ -1,18 +1,18 @@
 
-//Перетекание данных из textarea для отправки данных на сервер
+//Перетекание данных для отправки данных на сервер
 
-if(document.getElementById('description_form')) {
-    let textareaDescription = document.getElementById('description');
-    let textareaDescriptionFrom = document.getElementById('description_form');
-
-    if(textareaDescription.value !== '') {
-        textareaDescriptionFrom.value = textareaDescription.value;
-    }
-
-    textareaDescription.addEventListener('change', () => {
-        textareaDescriptionFrom.value = textareaDescription.value;
-    });
-}
+// if(document.getElementById('description_form')) {
+//     let textareaDescription = document.getElementById('description');
+//     let textareaDescriptionFrom = document.getElementById('description_form');
+//
+//     if(textareaDescription.value !== '') {
+//         textareaDescriptionFrom.value = textareaDescription.value;
+//     }
+//
+//     textareaDescription.addEventListener('change', () => {
+//         textareaDescriptionFrom.value = textareaDescription.value;
+//     });
+// }
 
 if(document.getElementById('addition_form')) {
     let textareaAddition = document.getElementById('addition');
@@ -24,6 +24,31 @@ if(document.getElementById('addition_form')) {
 
     textareaAddition.addEventListener('change', () => {
         textareaAdditionForm.value = textareaAddition.value;
+    });
+}
+if(document.getElementById('minute_form')) {
+    let inputMinutes = document.getElementById('minute');
+    let minutesForm = document.getElementById('minute_form');
+
+    if(inputMinutes.value !== '') {
+        minutesForm.value = inputMinutes.value;
+    }
+
+    inputMinutes.addEventListener('change', () => {
+        minutesForm.value = inputMinutes.value;
+    });
+}
+if(document.getElementById('yes-emergency-activation')) {
+    let yesEmergencyActivation = document.getElementById('yes-emergency-activation');
+    let noEmergencyActivation = document.getElementById('no-emergency-activation');
+    let EmergencyActivationForm = document.getElementById('emergency-activation');
+
+    yesEmergencyActivation.addEventListener('click', () => {
+        EmergencyActivationForm.value = 1;
+    });
+
+    noEmergencyActivation.addEventListener('click', () => {
+        EmergencyActivationForm.value = 0;
     });
 }
 
@@ -47,11 +72,23 @@ if(document.querySelector('.permission__number')) {
     new IMask(secondNumber, dateOptionsSecond);
 }
 
+//Установка маски для времени аварийной готовности
+if(document.querySelector('.condition-permission__minute')) {
+    let inputMinute = document.querySelector('.condition-permission__minute');
+
+    let dateOption = {
+        mask: /^[0-9]*$/,
+        lazy: false
+    };
+
+    new IMask(inputMinute, dateOption);
+}
+
 
 //Обработка подзагаловков типов работ
 if(document.querySelector('.permission-add__subtitile_typical')) {
     if(issetTypicalWork()) {
-        setSubtitleTypicalWork('1.1. Типовые работы:');
+        setSubtitleTypicalWork('2.1. Типовые работы:');
     }
 }
 
@@ -84,9 +121,9 @@ if(document.querySelector('.permission-add__subtitile_untypical')) {
 
     if(document.querySelector('.permission-add__block')) {
         if(issetTypicalWork()) {
-            setSubtitleUntypicalWork('1.2. Нетиповые работы:')
+            setSubtitleUntypicalWork('2.2. Нетиповые работы:')
         } else if(issetUntypicalWork()) {
-            setSubtitleUntypicalWork('1.1. Нетиповые работы:')
+            setSubtitleUntypicalWork('2.1. Нетиповые работы:')
         }
     }
 }
@@ -118,7 +155,7 @@ function delTypicalWork(id, parentForm){
 
             if(!issetTypicalWork()) {
                 setSubtitleTypicalWork('');
-                setSubtitleUntypicalWork('1.1. Нетиповые работы:')
+                setSubtitleUntypicalWork('2.1. Нетиповые работы:')
             }
         }
     };

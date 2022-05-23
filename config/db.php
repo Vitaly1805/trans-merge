@@ -3,7 +3,7 @@
 
 return [
     'host' => 'localhost',
-    'port' => 5433,
+    'port' => 5432,
     'nameMainDB' => 'trans',
     'nameArchiveDB' => 'trans_archive',
     'username' => 'postgres',

@@ -53,31 +53,7 @@ class SCV
         return ob_get_clean();
     }
 
-    public function getSCVDates($listId = []):array {
-        foreach ($listId as $item) {
-            $dates[] = $this->date->getDates($item);
-        }
-
-        return $dates;
-    }
-
-    public function getSCVResponse($id = 0, $listId = []):array {
-        foreach ($listId as $item) {
-            $responsibles[] = $this->employee->getEmployee($id, $item);
-        }
-
-        return $responsibles;
-    }
-
-    public function getSCVTypicalWorks($listId = []):array {
-        foreach ($listId as $item) {
-            $typicalWorks[] = $this->typicalWork->getTypicalWork($item);
-        }
-
-        return $typicalWorks;
-    }
-
-    public function setSCVDateText($result = [], $dates = []):array {
+        public function setSCVDateText($result = [], $dates = []):array {
         foreach ($dates  as $date) {
             $fio = '';
             $fl = true;
@@ -130,4 +106,29 @@ class SCV
 
         return $result;
     }
+
+    public function getSCVDates($listId = []):array {
+        foreach ($listId as $item) {
+            $dates[] = $this->date->getDates($item);
+        }
+
+        return $dates;
+    }
+
+    public function getSCVResponse($id = 0, $listId = []):array {
+        foreach ($listId as $item) {
+            $responsibles[] = $this->employee->getEmployee($id, $item);
+        }
+
+        return $responsibles;
+    }
+
+    public function getSCVTypicalWorks($listId = []):array {
+        foreach ($listId as $item) {
+            $typicalWorks[] = $this->typicalWork->getTypicalWork($item);
+        }
+
+        return $typicalWorks;
+    }
+
 }

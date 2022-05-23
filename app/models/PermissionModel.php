@@ -62,10 +62,11 @@ class PermissionModel extends AppModel
         $this->redirect('permission', '');
     }
 
-    public function updatePermission($description, $addition) {
+    public function updatePermission($addition, $countMinutes, $idEmergencyActivation) {
         $permission = $this->permission->getPermission($_SESSION['idCurrentPermission'])[0];
-        $this->permission->updatePermission($permission['id'], $description, $addition,
-                                            $permission['number'], $permission['subdivision_id'], $permission['untypical_work']);
+        $this->permission->updatePermission($permission['id'], $permission['description'], $addition,
+                                            $permission['number'], $permission['subdivision_id'], $permission['untypical_work'],
+                                            $countMinutes, $idEmergencyActivation);
 
         $this->redirect('permission', 'add');
     }
@@ -664,7 +665,9 @@ class PermissionModel extends AppModel
         die();
     }
 
-    public function downloadPDF($strPermissionsId = '') {
-        $pdf = new PDF();
+    public function downloadPDF() {
+        $pdf = new PDF($this->db, intval($_SESSION['idCurrentPermission']));
+        $pdf->download();
     }
+
 }

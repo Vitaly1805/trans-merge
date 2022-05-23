@@ -63,7 +63,7 @@ class PermissionController extends AppController
         } elseif(isset($_REQUEST['id_responsible'])) {
             $this->model->delResponsible($_REQUEST['id_responsible'], $_REQUEST['id_type_person']);
         } elseif(isset($_POST['update-permission'])) {
-            $this->model->updatePermission($_POST['description'], $_POST['addition']);
+            $this->model->updatePermission($_POST['addition'], intval($_POST['count_minutes']), boolval($_POST['emergency-activation']));
         } elseif(isset($_POST['create-permission'])) {
             $this->model->createPermission();
         } elseif(isset($_POST['edit-number'])) {
